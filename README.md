@@ -192,6 +192,7 @@
       <button onclick="splitTeams()">チーム分け！</button>
       <button onclick="resetAll()">リセット</button>
     </div>
+    <div id="digital-clock" style="font-size: 1.2em; width: fit-content; padding: 4px 10px; border: 1px solid #ccc; border-radius: 6px; background: #f7f7f7; color: #222; font-family: 'Courier New', monospace;"></div>
     <hr>
     <div id="result" class="result"></div>
   </div>
