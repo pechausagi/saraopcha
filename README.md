@@ -28,6 +28,33 @@
       from { opacity: 0; transform: translateY(24px);}
       to { opacity: 1; transform: translateY(0);}
     }
+    .clock-wrap {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 0.3em;
+    }
+    .digital-clock {
+      font-family: 'Kaisei Decol', 'Zen Maru Gothic', monospace;
+      font-size: 1.1em;
+      color: #fff;
+      background: linear-gradient(90deg, #d1b2ff 60%, #f9eaff 100%);
+      box-shadow: 0 2px 6px rgba(160, 120, 180, 0.09);
+      border-radius: 14px;
+      padding: 0.22em 1em 0.22em 0.92em;
+      letter-spacing: 0.16em;
+      border: 2px solid #e3c6ff;
+      display: inline-block;
+      min-width: 94px;
+      text-align: center;
+      margin-top: 0.5em;
+      margin-bottom: 0.1em;
+      position: relative;
+      z-index: 2;
+      box-sizing: border-box;
+      transition: background 0.3s;
+      font-weight: 700;
+      text-shadow: 0 1px 2px #cbb6e9, 0 0px 3px #fff7;
+    }
     h1 {
       font-family: 'Kaisei Decol', cursive;
       font-size: 2em;
@@ -154,14 +181,18 @@
     }
     @media (max-width: 500px) {
       .container { padding: 1.1em 0.4em;}
+      .digital-clock { font-size: 0.95em; min-width: 74px; padding-left: 0.7em;}
       .team-card { min-width: 100px; max-width: 99vw;}
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>ぺちゃうさのチーム分け！</h1>
-    <h2>参加者リスト</h2>
+    <div class="clock-wrap">
+      <span class="digital-clock" id="digital-clock"></span>
+    </div>
+    <h1>SARAオプチャ専用チーム分け！</h1>
+    <h2>メンバーリスト</h2>
     <ul class="participants" id="participants-list">
       <li><label><input type="checkbox" value="さら">さら</label></li>
       <li><label><input type="checkbox" value="ひろ">ひろ</label></li>
@@ -195,12 +226,23 @@
       <button onclick="splitTeams()">チーム分け！</button>
       <button onclick="resetAll()">リセット</button>
     </div>
-    <div id="digital-clock" style="font-size: 1.2em; width: fit-content; padding: 4px 10px; border: 1px solid #ccc; border-radius: 6px; background: #f7f7f7; color: #222; font-family: 'Courier New', monospace;"></div>
     <hr>
     <div id="result" class="result"></div>
   </div>
 
   <script>
+    // デジタル時計の表示
+    function updateClock() {
+      const clock = document.getElementById('digital-clock');
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      clock.textContent = `${h}:${m}:${s}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
     function shuffle(array) {
       const arr = array.slice();
       for (let i = arr.length - 1; i > 0; i--) {
