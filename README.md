@@ -1,7 +1,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>SARAオプチャ専用チーム分け！</title>
+  <title>SARAオプチャ専用　　チーム分け！</title>
   <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@700&family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -191,7 +191,7 @@
     <div class="clock-wrap">
       <span class="digital-clock" id="digital-clock"></span>
     </div>
-    <h1>SARAオプチャ専用チーム分け！</h1>
+    <h1>SARAオプチャ専用　　チーム分け！</h1>
     <h2>メンバーリスト</h2>
     <ul class="participants" id="participants-list">
       <li><label><input type="checkbox" value="さら">さら</label></li>
