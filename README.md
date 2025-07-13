@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>ぺちゃうさのチーム分け！</title>
+  <title>SARAオプチャ専用チーム分け！</title>
   <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@700&family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -164,24 +164,28 @@
     <h1>ぺちゃうさのチーム分け！</h1>
     <h2>参加者リスト</h2>
     <ul class="participants" id="participants-list">
-      <li><label><input type="checkbox" value="ぱいな">ぱいな</label></li>
-      <li><label><input type="checkbox" value="しぇふ">しぇふ</label></li>
-      <li><label><input type="checkbox" value="りお">りお</label></li>
+      <li><label><input type="checkbox" value="さら">さら</label></li>
+      <li><label><input type="checkbox" value="ひろ">ひろ</label></li>
+      <li><label><input type="checkbox" value="あきとん">あきとん</label></li>
+      <li><label><input type="checkbox" value="みやび">みやび</label></li>
+      <li><label><input type="checkbox" value="ぴーなっつ">ぴーなっつ</label></li>
+      <li><label><input type="checkbox" value="SK">SK</label></li>
+      <li><label><input type="checkbox" value="そういち">そういち</label></li>
+      <li><label><input type="checkbox" value="しょう">しょう</label></li>
+      <li><label><input type="checkbox" value="とうえい">とうえい</label></li>
+      <li><label><input type="checkbox" value="しゃけ">しゃけ</label></li>
+      <li><label><input type="checkbox" value="じぇいず">じぇいず</label></li>
+      <li><label><input type="checkbox" value="ただっく">ただっく</label></li>
+      <li><label><input type="checkbox" value="ちい">ちい</label></li>
+      <li><label><input type="checkbox" value="まっつん">まっつん</label></li>
+      <li><label><input type="checkbox" value="まみーご">まみーご</label></li>
+      <li><label><input type="checkbox" value="むちょ">むちょ</label></li>
+      <li><label><input type="checkbox" value="やま">やま</label></li>
+      <li><label><input type="checkbox" value="さく">さく</label></li>
       <li><label><input type="checkbox" value="しお">しお</label></li>
-      <li><label><input type="checkbox" value="るね">るね</label></li>
-      <li><label><input type="checkbox" value="かも">かも</label></li>
-      <li><label><input type="checkbox" value="さとふる">さとふる</label></li>
-      <li><label><input type="checkbox" value="しろ">しろ</label></li>
-      <li><label><input type="checkbox" value="すぺーど">すぺーど</label></li>
-      <li><label><input type="checkbox" value="ちばっと">ちばっと</label></li>
-      <li><label><input type="checkbox" value="ちーな">ちーな</label></li>
-      <li><label><input type="checkbox" value="もこ">もこ</label></li>
-      <li><label><input type="checkbox" value="ばなな">ばなな</label></li>
-      <li><label><input type="checkbox" value="ぺぺみや">ぺぺみや</label></li>
-      <li><label><input type="checkbox" value="み～み～">み～み～</label></li>
-      <li><label><input type="checkbox" value="りご">りご</label></li>
-      <li><label><input type="checkbox" value="きら">きら</label></li>
-      <li><label><input type="checkbox" value="きんちゃん">きんちゃん</label></li>
+      <li><label><input type="checkbox" value="バナナ">バナナ</label></li>
+      <li><label><input type="checkbox" value="ファンタ">ファンタ</label></li>
+      <li><label><input type="checkbox" value="ボウ">ボウ</label></li>
       <li><label><input type="checkbox" value="ぺちゃうさ">ぺちゃうさ</label></li>
     </ul>
     <div class="team-count-wrap">
