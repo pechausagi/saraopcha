@@ -191,7 +191,7 @@
     <div class="clock-wrap">
       <span class="digital-clock" id="digital-clock"></span>
     </div>
-    <h1>SARAオプチャ専用　　チーム分け！</h1>
+    <h1>SARAオプチャ専用<br>チーム分け！</h1>
     <h2>メンバーリスト</h2>
     <ul class="participants" id="participants-list">
       <li><label><input type="checkbox" value="さら">さら</label></li>
