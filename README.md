@@ -218,6 +218,7 @@
       <li><label><input type="checkbox" value="ファンタ">ファンタ</label></li>
       <li><label><input type="checkbox" value="ボウ">ボウ</label></li>
       <li><label><input type="checkbox" value="ぺちゃうさ">ぺちゃうさ</label></li>
+      <li><label><input type="checkbox" value="えでぃー">えでぃー</label></li>
       <li><label><input type="checkbox" value="新メンバー用">新メンバー用</label></li>
     </ul>
     <div class="team-count-wrap">
