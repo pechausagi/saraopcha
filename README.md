@@ -191,8 +191,11 @@
     <div class="clock-wrap">
       <span class="digital-clock" id="digital-clock"></span>
     </div>
+    <div class="title-bg-wrap">
+  <img src="image.png" alt="ペチャウサイラスト" class="title-bg-img">
     <h1>SARAオプチャ専用<br>
       チーム分け！</h1>
+    </div>
     <h2>メンバーリスト</h2>
     <ul class="participants" id="participants-list">
       <li><label><input type="checkbox" value="さら">さら</label></li>
