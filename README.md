@@ -225,6 +225,7 @@
       <li><label><input type="checkbox" value="オムライス">オムライス</label></li>
       <li><label><input type="checkbox" value="かず">かず</label></li>
       <li><label><input type="checkbox" value="46">46</label></li>
+      <li><label><input type="checkbox" value="シュガー">シュガー</label></li>
       <li><label><input type="checkbox" value="新メンバー用">新メンバー用</label></li>
     </ul>
     <div class="team-count-wrap">
