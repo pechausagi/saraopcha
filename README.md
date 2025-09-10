@@ -204,7 +204,6 @@
       <li><label><input type="checkbox" value="みやび">みやび</label></li>
       <li><label><input type="checkbox" value="ぴーなっつ">ぴーなっつ</label></li>
       <li><label><input type="checkbox" value="SK">SK</label></li>
-      <li><label><input type="checkbox" value="そういち">そういち</label></li>
       <li><label><input type="checkbox" value="しょう">しょう</label></li>
       <li><label><input type="checkbox" value="とうえい">とうえい</label></li>
       <li><label><input type="checkbox" value="しゃけ">しゃけ</label></li>
@@ -215,15 +214,12 @@
       <li><label><input type="checkbox" value="まみーご">まみーご</label></li>
       <li><label><input type="checkbox" value="むちょ">むちょ</label></li>
       <li><label><input type="checkbox" value="やま">やま</label></li>
-      <li><label><input type="checkbox" value="さく">さく</label></li>
       <li><label><input type="checkbox" value="しお">しお</label></li>
       <li><label><input type="checkbox" value="バナナ">バナナ</label></li>
       <li><label><input type="checkbox" value="ファンタ">ファンタ</label></li>
       <li><label><input type="checkbox" value="ボウ">ボウ</label></li>
       <li><label><input type="checkbox" value="ぺちゃうさ">ぺちゃうさ</label></li>
-      <li><label><input type="checkbox" value="まーしー">まーしー</label></li>
       <li><label><input type="checkbox" value="オムライス">オムライス</label></li>
-      <li><label><input type="checkbox" value="かず">かず</label></li>
       <li><label><input type="checkbox" value="46">46</label></li>
       <li><label><input type="checkbox" value="シュガー">シュガー</label></li>
       <li><label><input type="checkbox" value="新メンバー用">新メンバー用</label></li>
