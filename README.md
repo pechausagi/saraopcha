@@ -214,7 +214,6 @@
       <li><label><input type="checkbox" value="まみーご">まみーご</label></li>
       <li><label><input type="checkbox" value="むちょ">むちょ</label></li>
       <li><label><input type="checkbox" value="やま">やま</label></li>
-      <li><label><input type="checkbox" value="しお">しお</label></li>
       <li><label><input type="checkbox" value="バナナ">バナナ</label></li>
       <li><label><input type="checkbox" value="ファンタ">ファンタ</label></li>
       <li><label><input type="checkbox" value="ボウ">ボウ</label></li>
