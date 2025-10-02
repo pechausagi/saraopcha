@@ -222,6 +222,7 @@
       <li><label><input type="checkbox" value="シュガー">シュガー</label></li>
       <li><label><input type="checkbox" value="とん">とん</label></li>
       <li><label><input type="checkbox" value="ぽんずのしゅけ">ぽんずのしゅけ</label></li>
+      <li><label><input type="checkbox" value="ちゃま">ちゃま</label></li>
       <li><label><input type="checkbox" value="新メンバー用">新メンバー用</label></li>
     </ul>
     <div class="team-count-wrap">
