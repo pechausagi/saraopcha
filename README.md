@@ -208,7 +208,6 @@
       <li><label><input type="checkbox" value="とうえい">とうえい</label></li>
       <li><label><input type="checkbox" value="しゃけ">しゃけ</label></li>
       <li><label><input type="checkbox" value="じぇいず">じぇいず</label></li>
-      <li><label><input type="checkbox" value="ただっく">ただっく</label></li>
       <li><label><input type="checkbox" value="ちい">ちい</label></li>
       <li><label><input type="checkbox" value="まっつん">まっつん</label></li>
       <li><label><input type="checkbox" value="まみーご">まみーご</label></li>
@@ -223,6 +222,7 @@
       <li><label><input type="checkbox" value="とん">とん</label></li>
       <li><label><input type="checkbox" value="ぽんずのしゅけ">ぽんずのしゅけ</label></li>
       <li><label><input type="checkbox" value="ちゃま">ちゃま</label></li>
+      <li><label><input type="checkbox" value="まの">まの</label></li>
       <li><label><input type="checkbox" value="新メンバー用">新メンバー用</label></li>
     </ul>
     <div class="team-count-wrap">
