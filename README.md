@@ -204,7 +204,6 @@
       <li><label><input type="checkbox" value="みやび">みやび</label></li>
       <li><label><input type="checkbox" value="ぴーなっつ">ぴーなっつ</label></li>
       <li><label><input type="checkbox" value="SK">SK</label></li>
-      <li><label><input type="checkbox" value="しょう">しょう</label></li>
       <li><label><input type="checkbox" value="とうえい">とうえい</label></li>
       <li><label><input type="checkbox" value="しゃけ">しゃけ</label></li>
       <li><label><input type="checkbox" value="じぇいず">じぇいず</label></li>
@@ -217,12 +216,13 @@
       <li><label><input type="checkbox" value="ファンタ">ファンタ</label></li>
       <li><label><input type="checkbox" value="ボウ">ボウ</label></li>
       <li><label><input type="checkbox" value="ぺちゃうさ">ぺちゃうさ</label></li>
-      <li><label><input type="checkbox" value="オムライス">オムライス</label></li>
+      <li><label><input type="checkbox" value="ちゃぶ">ちゃぶ</label></li>
       <li><label><input type="checkbox" value="シュガー">シュガー</label></li>
       <li><label><input type="checkbox" value="とん">とん</label></li>
       <li><label><input type="checkbox" value="ぽんずのしゅけ">ぽんずのしゅけ</label></li>
       <li><label><input type="checkbox" value="ちゃま">ちゃま</label></li>
       <li><label><input type="checkbox" value="まの">まの</label></li>
+      <li><label><input type="checkbox" value="けん">けん</label></li>
       <li><label><input type="checkbox" value="新メンバー用">新メンバー用</label></li>
     </ul>
     <div class="team-count-wrap">
