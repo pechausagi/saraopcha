@@ -223,6 +223,7 @@
       <li><label><input type="checkbox" value="ちゃま">ちゃま</label></li>
       <li><label><input type="checkbox" value="まの">まの</label></li>
       <li><label><input type="checkbox" value="けん">けん</label></li>
+      <li><label><input type="checkbox" value="ちいかわ">ちいかわ</label></li>
       <li><label><input type="checkbox" value="新メンバー用">新メンバー用</label></li>
     </ul>
     <div class="team-count-wrap">
