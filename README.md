@@ -225,6 +225,7 @@
       <li><label><input type="checkbox" value="五条">五条</label></li>
       <li><label><input type="checkbox" value="ぼんど">ぼんど</label></li>
       <li><label><input type="checkbox" value="とき">とき</label></li>
+      <li><label><input type="checkbox" value="てんと">てんと</label></li>
       <li><label><input type="checkbox" value="新メンバー用">新メンバー用</label></li>
     </ul>
     <div class="team-count-wrap">
