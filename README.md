@@ -221,7 +221,6 @@
       <li><label><input type="checkbox" value="とん">とん</label></li>
       <li><label><input type="checkbox" value="ぽんずのしゅけ">ぽんずのしゅけ</label></li>
       <li><label><input type="checkbox" value="ちゃま">ちゃま</label></li>
-      <li><label><input type="checkbox" value="まの">まの</label></li>
       <li><label><input type="checkbox" value="けん">けん</label></li>
       <li><label><input type="checkbox" value="五条">五条</label></li>
       <li><label><input type="checkbox" value="ぼんど">ぼんど</label></li>
