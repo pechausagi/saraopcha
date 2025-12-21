@@ -201,28 +201,20 @@
       <li><label><input type="checkbox" value="さら">さら</label></li>
       <li><label><input type="checkbox" value="ひろ">ひろ</label></li>
       <li><label><input type="checkbox" value="あきとん">あきとん</label></li>
-      <li><label><input type="checkbox" value="みやび">みやび</label></li>
-      <li><label><input type="checkbox" value="ぴーなっつ">ぴーなっつ</label></li>
+      <li><label><input type="checkbox" value="けんけん">けんけん</label></li>
       <li><label><input type="checkbox" value="SK">SK</label></li>
       <li><label><input type="checkbox" value="とうえい">とうえい</label></li>
       <li><label><input type="checkbox" value="しゃけ">しゃけ</label></li>
-      <li><label><input type="checkbox" value="じぇいず">じぇいず</label></li>
       <li><label><input type="checkbox" value="ちい">ちい</label></li>
       <li><label><input type="checkbox" value="まっつん">まっつん</label></li>
       <li><label><input type="checkbox" value="まみーご">まみーご</label></li>
       <li><label><input type="checkbox" value="むちょ">むちょ</label></li>
       <li><label><input type="checkbox" value="やま">やま</label></li>
       <li><label><input type="checkbox" value="バナナ">バナナ</label></li>
-      <li><label><input type="checkbox" value="ファンタ">ファンタ</label></li>
       <li><label><input type="checkbox" value="ボウ">ボウ</label></li>
       <li><label><input type="checkbox" value="ぺちゃうさ">ぺちゃうさ</label></li>
       <li><label><input type="checkbox" value="ちゃぶ">ちゃぶ</label></li>
-      <li><label><input type="checkbox" value="シュガー">シュガー</label></li>
       <li><label><input type="checkbox" value="とん">とん</label></li>
-      <li><label><input type="checkbox" value="ぽんずのしゅけ">ぽんずのしゅけ</label></li>
-      <li><label><input type="checkbox" value="ちゃま">ちゃま</label></li>
-      <li><label><input type="checkbox" value="けん">けん</label></li>
-      <li><label><input type="checkbox" value="五条">五条</label></li>
       <li><label><input type="checkbox" value="ぼんど">ぼんど</label></li>
       <li><label><input type="checkbox" value="とき">とき</label></li>
       <li><label><input type="checkbox" value="てんと">てんと</label></li>
