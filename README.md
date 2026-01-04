@@ -219,6 +219,7 @@
       <li><label><input type="checkbox" value="とき">とき</label></li>
       <li><label><input type="checkbox" value="てんと">てんと</label></li>
       <li><label><input type="checkbox" value="ニャヒー">ニャヒー</label></li>
+      <li><label><input type="checkbox" value="しん">しん</label></li>
       <li><label><input type="checkbox" value="新メンバー用">新メンバー用</label></li>
     </ul>
     <div class="team-count-wrap">
