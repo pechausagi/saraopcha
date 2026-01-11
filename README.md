@@ -220,6 +220,8 @@
       <li><label><input type="checkbox" value="てんと">てんと</label></li>
       <li><label><input type="checkbox" value="ニャヒー">ニャヒー</label></li>
       <li><label><input type="checkbox" value="しん">しん</label></li>
+      <li><label><input type="checkbox" value="服部">服部</label></li>
+      <li><label><input type="checkbox" value="KAT">KAT</label></li>
       <li><label><input type="checkbox" value="新メンバー用">新メンバー用</label></li>
     </ul>
     <div class="team-count-wrap">
