@@ -222,7 +222,8 @@
       <li><label><input type="checkbox" value="しん">しん</label></li>
       <li><label><input type="checkbox" value="服部">服部</label></li>
       <li><label><input type="checkbox" value="KAT">KAT</label></li>
-      <li><label><input type="checkbox" value="新メンバー用">新メンバー用</label></li>
+      <li><label><input type="checkbox" value="みかん">みかん</label></li>
+      <li><label><input type="checkbox" value="うめ">うめ</label></li>
     </ul>
     <div class="team-count-wrap">
       チーム数:
