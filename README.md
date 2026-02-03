@@ -224,6 +224,7 @@
       <li><label><input type="checkbox" value="KAT">KAT</label></li>
       <li><label><input type="checkbox" value="みかん">みかん</label></li>
       <li><label><input type="checkbox" value="うめ">うめ</label></li>
+      <li><label><input type="checkbox" value="あり">あり</label></li>
     </ul>
     <div class="team-count-wrap">
       チーム数:
