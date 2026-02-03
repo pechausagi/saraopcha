@@ -201,27 +201,22 @@
       <li><label><input type="checkbox" value="さら">さら</label></li>
       <li><label><input type="checkbox" value="ひろ">ひろ</label></li>
       <li><label><input type="checkbox" value="あきとん">あきとん</label></li>
-      <li><label><input type="checkbox" value="けんけん">けんけん</label></li>
       <li><label><input type="checkbox" value="SK">SK</label></li>
       <li><label><input type="checkbox" value="とうえい">とうえい</label></li>
       <li><label><input type="checkbox" value="しゃけ">しゃけ</label></li>
       <li><label><input type="checkbox" value="ちい">ちい</label></li>
       <li><label><input type="checkbox" value="まっつん">まっつん</label></li>
       <li><label><input type="checkbox" value="まみーご">まみーご</label></li>
-      <li><label><input type="checkbox" value="むちょ">むちょ</label></li>
-      <li><label><input type="checkbox" value="やま">やま</label></li>
       <li><label><input type="checkbox" value="バナナ">バナナ</label></li>
       <li><label><input type="checkbox" value="ボウ">ボウ</label></li>
       <li><label><input type="checkbox" value="ぺちゃうさ">ぺちゃうさ</label></li>
       <li><label><input type="checkbox" value="ちゃぶ">ちゃぶ</label></li>
-      <li><label><input type="checkbox" value="とん">とん</label></li>
       <li><label><input type="checkbox" value="ぼんど">ぼんど</label></li>
       <li><label><input type="checkbox" value="とき">とき</label></li>
       <li><label><input type="checkbox" value="てんと">てんと</label></li>
       <li><label><input type="checkbox" value="ニャヒー">ニャヒー</label></li>
       <li><label><input type="checkbox" value="しん">しん</label></li>
       <li><label><input type="checkbox" value="服部">服部</label></li>
-      <li><label><input type="checkbox" value="KAT">KAT</label></li>
       <li><label><input type="checkbox" value="みかん">みかん</label></li>
       <li><label><input type="checkbox" value="うめ">うめ</label></li>
       <li><label><input type="checkbox" value="あり">あり</label></li>
