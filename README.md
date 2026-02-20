@@ -220,6 +220,9 @@
       <li><label><input type="checkbox" value="みかん">みかん</label></li>
       <li><label><input type="checkbox" value="うめ">うめ</label></li>
       <li><label><input type="checkbox" value="あり">あり</label></li>
+      <li><label><input type="checkbox" value="いづみ">いづみ</label></li>
+      <li><label><input type="checkbox" value="なびー">なびー</label></li>
+      <li><label><input type="checkbox" value="ぴょ">ぴょ</label></li>
     </ul>
     <div class="team-count-wrap">
       チーム数:
