@@ -227,7 +227,10 @@
       <li><label><input type="checkbox" value="くお">くお</label></li>
       <li><label><input type="checkbox" value="だいち">だいち</label></li>
       <li><label><input type="checkbox" value="かど">かど</label></li>
+      <li><label><input type="checkbox" value="もじ">もじ</label></li>
+      <li><label><input type="checkbox" value="つゆ">つゆ</label></li>
       <li><label><input type="checkbox" value="ご新規様">ご新規様</label></li>
+      <li><label><input type="checkbox" value="🐔">🐔</label></li>
     </ul>
     <div class="team-count-wrap">
       チーム数:
