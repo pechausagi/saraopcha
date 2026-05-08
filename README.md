@@ -227,6 +227,7 @@
       <li><label><input type="checkbox" value="もじ">もじ</label></li>
       <li><label><input type="checkbox" value="つゆ">つゆ</label></li>
       <li><label><input type="checkbox" value="ちぇるしー">ちぇるしー</label></li>
+      <li><label><input type="checkbox" value="ほよ">ほよ</label></li>
       <li><label><input type="checkbox" value="ご新規様">ご新規様</label></li>
       <li><label><input type="checkbox" value="🐔">🐔</label></li>
     </ul>
