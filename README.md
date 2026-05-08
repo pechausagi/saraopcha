@@ -208,12 +208,10 @@
       <li><label><input type="checkbox" value="まっつん">まっつん</label></li>
       <li><label><input type="checkbox" value="まみーご">まみーご</label></li>
       <li><label><input type="checkbox" value="バナナ">バナナ</label></li>
-      <li><label><input type="checkbox" value="ボウ">ボウ</label></li>
       <li><label><input type="checkbox" value="ぺちゃうさ">ぺちゃうさ</label></li>
       <li><label><input type="checkbox" value="ぼんど">ぼんど</label></li>
       <li><label><input type="checkbox" value="とき">とき</label></li>
       <li><label><input type="checkbox" value="てんと">てんと</label></li>
-      <li><label><input type="checkbox" value="しん">しん</label></li>
       <li><label><input type="checkbox" value="服部">服部</label></li>
       <li><label><input type="checkbox" value="うめ">うめ</label></li>
       <li><label><input type="checkbox" value="あり">あり</label></li>
