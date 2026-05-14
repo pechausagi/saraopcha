@@ -320,6 +320,18 @@ const supabase = window.supabase.createClient(
 );
 
 console.log("Supabase connected!");
+async function testSave() {
+  const { data, error } = await supabase
+    .from("players")
+    .insert([
+      { name: "ぺちゃうさ", team: "A" }
+    ]);
+
+  console.log(data, error);
+}
+
+testSave();
+
 
 </script>
 </body>
