@@ -331,7 +331,36 @@ async function testSave() {
 }
 
 testSave();
+// 保存
+document.querySelectorAll('#participants-list input[type="checkbox"]')
+  .forEach(cb => {
+    cb.addEventListener('change', saveChecks);
+  });
 
+function saveChecks() {
+  const checked = [];
+
+  document.querySelectorAll('#participants-list input[type="checkbox"]')
+    .forEach(cb => {
+      if (cb.checked) {
+        checked.push(cb.value);
+      }
+    });
+
+  localStorage.setItem('checkedParticipants', JSON.stringify(checked));
+}
+
+// 復元
+function loadChecks() {
+  const saved = JSON.parse(localStorage.getItem('checkedParticipants')) || [];
+
+  document.querySelectorAll('#participants-list input[type="checkbox"]')
+    .forEach(cb => {
+      cb.checked = saved.includes(cb.value);
+    });
+}
+
+loadChecks();
 
 </script>
 </body>
