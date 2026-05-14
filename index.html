@@ -308,5 +308,19 @@
       document.getElementById('result').innerHTML = '';
     }
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script>
+
+const supabase = window.supabase.createClient(
+
+  "https://uaxtrxgoopiduniqzqla.supabase.co/rest/v1/",
+
+  "sb_publishable_NeSyvgn5fyJeuDlOMfwUYg_iPGrYzV6"
+
+);
+
+console.log("Supabase connected!");
+
+</script>
 </body>
 </html>
