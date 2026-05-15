@@ -100,19 +100,32 @@
       "sb_publishable_YPe4ILiXSk080rYG4-DYxA_J7QYycfy"
     );
 
-    // --- 初期化 ---
-    async function init() {
-      await fetchMembers();
-      updateClock();
-      setInterval(updateClock, 1000);
+    // --- 1. 初期化処理 ---
+  async function init() {
+    // A. まずメンバー一覧を表示（これを先に終わらせる）
+    await fetchMembers();
 
-      const { data } = await _supabase.from('player').select('*').eq('id', 1).single();
-      if (data) applyData(data.selected_names, data.team_count);
+    updateClock();
+    setInterval(updateClock, 1000);
 
-      _supabase.channel('player_changes').on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'player', filter: 'id=eq.1' }, 
-        payload => applyData(payload.new.selected_names, payload.new.team_count)
-      ).subscribe();
+    // B. playerテーブルからデータを取得
+    const { data, error } = await _supabase.from('player').select('*').eq('id', 1).single();
+    
+    // データがちゃんと取れた時だけ、applyDataを実行する（ここが重要！）
+    if (data && data.selected_names) {
+      applyData(data.selected_names, data.team_count);
+    } else {
+      console.log("playerデータの取得待ち、またはデータがありません");
     }
+
+    // C. リアルタイム監視
+    _supabase.channel('player_changes')
+      .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'player', filter: 'id=eq.1' }, payload => {
+        if (payload.new && payload.new.selected_names) {
+          applyData(payload.new.selected_names, payload.new.team_count);
+        }
+      }).subscribe();
+  }
 
     // --- メンバー取得 & 表示 ---
     async function fetchMembers() {
