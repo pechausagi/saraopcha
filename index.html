@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SARAオプチャ専用　　チーム分け！</title>
+  <title>SARAオプチャ専用 チーム分け！</title>
   
-  <!-- iOSアプリ化用設定 -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="SARAチーム分け">
@@ -13,31 +12,39 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@700&family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* デザイン部分は元のまま維持 */
-    body { font-family: 'Zen Maru Gothic', 'Kaisei Decol', sans-serif; background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%); min-height: 100vh; margin: 0; display: flex; flex-direction: column; align-items: center; }
+    body { font-family: 'Zen Maru Gothic', 'Kaisei Decol', sans-serif; background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%); min-height: 100vh; margin: 0; display: flex; flex-direction: column; align-items: center; padding-bottom: 50px; }
     .container { background: rgba(255, 255, 255, 0.93); border-radius: 24px; box-shadow: 0 6px 36px rgba(160, 120, 180, 0.18); max-width: 430px; width: 96vw; margin: 48px 0 24px 0; padding: 2.5em 2em 1.5em 2em; animation: fadeIn 1s; box-sizing: border-box; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(24px);} to { opacity: 1; transform: translateY(0);} }
     .clock-wrap { display: flex; justify-content: flex-end; margin-bottom: 0.3em; }
     .digital-clock { font-family: 'Kaisei Decol', monospace; font-size: 1.1em; color: #fff; background: linear-gradient(90deg, #d1b2ff 60%, #f9eaff 100%); border-radius: 14px; padding: 0.22em 1em; border: 2px solid #e3c6ff; display: inline-block; font-weight: 700; text-shadow: 0 1px 2px #cbb6e9; }
     h1 { font-family: 'Kaisei Decol', cursive; font-size: 2em; color: #a25cff; margin-bottom: 0.5em; text-align: center; }
     h2 { font-size: 1.1em; color: #5b41a9; margin: 1.8em 0 0.7em; }
+    
+    /* リストのデザイン調整 */
     ul.participants { list-style: none; padding: 0; margin: 0 0 1em 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.7em; }
-    label { display: flex; align-items: center; font-size: 1.07em; padding: 0.5em; background: #fdfbff; border-radius: 12px; cursor: pointer; transition: 0.2s; border: 1px solid transparent; }
-    label:hover { background: #f3e6fd; }
-    label input[type="checkbox"] { accent-color: #a25cff; margin-right: 0.6em; transform: scale(1.2); }
+    .participant-item { display: flex; align-items: center; justify-content: space-between; background: #fdfbff; border-radius: 12px; border: 1px solid transparent; transition: 0.2s; padding-right: 8px; }
+    .participant-item label { flex: 1; display: flex; align-items: center; font-size: 1.07em; padding: 0.5em; cursor: pointer; }
+    .participant-item:hover { background: #f3e6fd; }
+    input[type="checkbox"] { accent-color: #a25cff; margin-right: 0.6em; transform: scale(1.2); }
+    
     .team-count-wrap { margin: 1em 0 1.5em 0; font-size: 1.1em; color: #6a50b2; }
-    input[type="number"] { width: 50px; padding: 5px; border-radius: 8px; border: 1.2px solid #e5d2fa; }
+    input[type="number"], input[type="text"], input[type="password"] { padding: 8px; border-radius: 8px; border: 1.2px solid #e5d2fa; outline: none; }
+    input[type="number"] { width: 50px; }
+    
     .btns { display: flex; gap: 1em; margin-bottom: 1em; }
     button { flex: 1; font-family: inherit; font-size: 1.07em; padding: 0.6em; border: none; border-radius: 1.4em; background: linear-gradient(90deg, #b385f7 0%, #a8e5ff 100%); color: #fff; font-weight: 700; cursor: pointer; transition: 0.2s; }
     button:active { transform: scale(0.95); }
+    .del-btn { background: #ff7675; color: white; border-radius: 50%; width: 22px; height: 22px; padding: 0; font-size: 0.8em; flex: none; display: none; }
+    
     hr { border: none; border-top: 1.5px dashed #d9bcf7; margin: 1.5em 0; }
     .result { display: flex; flex-wrap: wrap; gap: 1em; justify-content: center; }
-    .team-card { background: linear-gradient(120deg, #f5eeff 70%, #e3f6ff 100%); border-radius: 18px; padding: 1em; min-width: 140px; text-align: center; animation: fadeInTeam 0.5s; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-    @keyframes fadeInTeam { from { opacity: 0; transform: scale(0.95);} to { opacity: 1; transform: scale(1);} }
+    .team-card { background: linear-gradient(120deg, #f5eeff 70%, #e3f6ff 100%); border-radius: 18px; padding: 1em; min-width: 140px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
     .team-card strong { color: #a25cff; font-size: 1.14em; display: block; margin-bottom: 5px; }
     .team-card ul { list-style: none; padding: 0; margin: 0; }
-    .team-card li { color: #473a6b; font-size: 1.05em; margin-bottom: 2px; }
-    .title-bg-img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+    
+    /* 管理用エリアのスタイル */
+    #admin-panel { display: none; background: #fff3ff; padding: 15px; border-radius: 15px; margin-bottom: 20px; border: 2px dashed #a25cff; }
+    #login-form-area { display: none; margin-top: 20px; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 80%; max-width: 300px; }
   </style>
 </head>
 <body>
@@ -45,13 +52,21 @@
     <div class="clock-wrap">
       <span class="digital-clock" id="digital-clock"></span>
     </div>
-    <img src="image.png" alt="ペチャウサイラスト" class="title-bg-img">
+    <img src="image.png" alt="イラスト" class="title-bg-img" style="max-width:100%">
     <h1>SARAオプチャ専用<br>チーム分け！</h1>
 
+    <div id="admin-panel">
+      <p style="margin: 0 0 10px 0; color: #a25cff; font-weight: bold; text-align: center;">🔧 メンバー編集モード</p>
+      <div style="display: flex; gap: 5px;">
+        <input type="text" id="new-member-name" placeholder="新しい名前" style="flex: 3;">
+        <button onclick="addMember()" style="flex: 1;">追加</button>
+      </div>
+      <button onclick="logout()" style="margin-top: 10px; background: #999; width: 100%; font-size: 0.8em;">ログアウト</button>
+    </div>
+
     <h2>メンバーリスト</h2>
-   <ul class="participants" id="participants-list">
-  <!-- ここはJavaScriptで自動作成されるので空でOK -->
-</ul>
+    <ul class="participants" id="participants-list">
+      </ul>
 
     <div class="team-count-wrap">
       チーム数: <input type="number" id="team-count" min="2" value="2">
@@ -64,106 +79,141 @@
     <div id="result" class="result"></div>
   </div>
 
-  <!-- Supabase JS Library -->
+  <div id="login-init-area">
+    <button onclick="showLoginForm()" style="background: rgba(255,255,255,0.3); color: #666; font-size: 0.8em; width: 150px;">管理者ログイン</button>
+  </div>
+
+  <div id="login-form-area">
+    <h3 style="margin-top:0; color:#a25cff;">管理者ログイン</h3>
+    <input type="text" id="login-id" placeholder="ID" style="width: 90%; margin-bottom: 10px;">
+    <input type="password" id="login-pass" placeholder="パスワード" style="width: 90%; margin-bottom: 15px;">
+    <div style="display: flex; gap: 10px;">
+      <button onclick="login()">ログイン</button>
+      <button onclick="hideLoginForm()" style="background: #ccc;">閉じる</button>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <script>
-   // --- 時計機能 ---
-  function updateClock() {
-    const clock = document.getElementById('digital-clock');
-    const now = new Date();
-    clock.textContent = now.toLocaleTimeString('ja-JP', { hour12: false });
-  }
-  setInterval(updateClock, 1000); updateClock();
+    const _supabase = window.supabase.createClient(
+      "https://ivgmpohqzicufksamoud.supabase.co",
+      "sb_publishable_YPe4ILiXSk080rYG4-DYxA_J7QYycfy"
+    );
 
-  // --- Supabase設定 ---
-  const _supabase = window.supabase.createClient(
-    "https://ivgmpohqzicufksamoud.supabase.co",
-    "sb_publishable_YPe4ILiXSk080rYG4-DYxA_J7QYycfy"
-  );
+    // --- 初期化 ---
+    async function init() {
+      await fetchMembers();
+      updateClock();
+      setInterval(updateClock, 1000);
 
-  // --- 1. 初期化処理（ページを開いた時に動く） ---
-  async function init() {
-    // A. membersテーブルからメンバー一覧を取得して表示
-    await fetchMembers();
+      const { data } = await _supabase.from('player').select('*').eq('id', 1).single();
+      if (data) applyData(data.selected_names, data.team_count);
 
-    // B. playerテーブルから現在のチェック状態を読み込み
-    const { data } = await _supabase.from('player').select('*').eq('id', 1).single();
-    if (data) applyData(data.selected_names, data.team_count);
-
-    // C. リアルタイム監視（他人が更新した時に自分の画面も変わる設定）
-    _supabase.channel('player_changes')
-      .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'player', filter: 'id=eq.1' }, payload => {
-        applyData(payload.new.selected_names, payload.new.team_count);
-      }).subscribe();
-  }
-
-  // --- 2. データベースからメンバー名を取ってきてHTMLを作る ---
-  async function fetchMembers() {
-    const { data, error } = await _supabase
-      .from('members')
-      .select('*')
-      .order('id', { ascending: true });
-
-    if (error) {
-      console.error("データ取得エラー:", error);
-      return;
+      _supabase.channel('player_changes').on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'player', filter: 'id=eq.1' }, 
+        payload => applyData(payload.new.selected_names, payload.new.team_count)
+      ).subscribe();
     }
 
-    const list = document.getElementById('participants-list');
-    // 重要：ここでチェックボックスを自動生成しています
-    list.innerHTML = data.map(m => `
-      <li>
-        <label>
-          <input type="checkbox" value="${m.name}" onchange="syncCloud()">
-          ${m.name}
-        </label>
-      </li>
-    `).join('');
-  }
+    // --- メンバー取得 & 表示 ---
+    async function fetchMembers() {
+      const { data, error } = await _supabase.from('members').select('*').order('id', { ascending: true });
+      if (error) return;
 
-  // --- 3. 画面の表示を更新する ---
-  function applyData(names, count) {
-    document.querySelectorAll('#participants-list input').forEach(cb => {
-      cb.checked = names.includes(cb.value);
-    });
-    document.getElementById('team-count').value = count;
-  }
+      const list = document.getElementById('participants-list');
+      list.innerHTML = data.map(m => `
+        <li class="participant-item">
+          <label>
+            <input type="checkbox" value="${m.name}" onchange="syncCloud()">
+            ${m.name}
+          </label>
+          <button class="del-btn" onclick="deleteMember(${m.id})">×</button>
+        </li>
+      `).join('');
+      checkUser();
+    }
 
-  // --- 4. チェック状態をSupabase（playerテーブル）に保存する ---
-  async function syncCloud() {
-    const selected = [];
-    document.querySelectorAll('#participants-list input:checked').forEach(cb => selected.push(cb.value));
-    const count = document.getElementById('team-count').value;
-    await _supabase.from('player').update({ selected_names: selected, team_count: count }).eq('id', 1);
-  }
+    // --- ログイン・認証関連 ---
+    function showLoginForm() { document.getElementById('login-form-area').style.display = 'block'; }
+    function hideLoginForm() { document.getElementById('login-form-area').style.display = 'none'; }
 
-  // チーム分け実行
-  function splitTeams() {
-    const selected = [];
-    document.querySelectorAll('#participants-list input:checked').forEach(cb => selected.push(cb.value));
-    const teamCount = parseInt(document.getElementById('team-count').value);
+    async function login() {
+      const id = document.getElementById('login-id').value;
+      const pass = document.getElementById('login-pass').value;
+      const email = `${id}@example.com`;
+      const { error } = await _supabase.auth.signInWithPassword({ email, password: pass });
+      if (error) return alert("IDまたはパスワードが違います");
+      hideLoginForm();
+      checkUser();
+    }
 
-    if (selected.length < teamCount) return alert("人数が足りません！");
+    async function logout() {
+      await _supabase.auth.signOut();
+      location.reload();
+    }
 
-    const shuffled = selected.sort(() => Math.random() - 0.5);
-    const teams = Array.from({ length: teamCount }, () => []);
-    shuffled.forEach((name, i) => teams[i % teamCount].push(name));
+    async function checkUser() {
+      const { data: { user } } = await _supabase.auth.getUser();
+      if (user) {
+        document.getElementById('admin-panel').style.display = 'block';
+        document.getElementById('login-init-area').style.display = 'none';
+        document.querySelectorAll('.del-btn').forEach(b => b.style.display = 'block');
+      }
+    }
 
-    const resultDiv = document.getElementById("result");
-    resultDiv.innerHTML = teams.map((team, i) => `
-      <div class="team-card"><strong>チーム${i+1}</strong><ul>${team.map(n => `<li>${n}</li>`).join('')}</ul></div>
-    `).join('');
-  }
+    // --- メンバー操作 ---
+    async function addMember() {
+      const input = document.getElementById('new-member-name');
+      const name = input.value.trim();
+      if (!name) return;
+      const { error } = await _supabase.from('members').insert([{ name }]);
+      if (error) return alert("権限がありません");
+      input.value = "";
+      fetchMembers();
+    }
 
-  // リセット
-  function resetAll() {
-    document.querySelectorAll('#participants-list input').forEach(cb => cb.checked = false);
-    document.getElementById('result').innerHTML = '';
-    syncCloud();
-  }
+    async function deleteMember(id) {
+      if (!confirm("削除しますか？")) return;
+      const { error } = await _supabase.from('members').delete().eq('id', id);
+      if (error) return alert("権限がありません");
+      fetchMembers();
+    }
 
-  // 最後に実行
-  init();
+    // --- 既存のチーム分けロジック ---
+    function updateClock() {
+      const clock = document.getElementById('digital-clock');
+      clock.textContent = new Date().toLocaleTimeString('ja-JP', { hour12: false });
+    }
+
+    function applyData(names, count) {
+      document.querySelectorAll('#participants-list input').forEach(cb => cb.checked = names.includes(cb.value));
+      document.getElementById('team-count').value = count;
+    }
+
+    async function syncCloud() {
+      const selected = Array.from(document.querySelectorAll('#participants-list input:checked')).map(cb => cb.value);
+      const count = document.getElementById('team-count').value;
+      await _supabase.from('player').update({ selected_names: selected, team_count: count }).eq('id', 1);
+    }
+
+    function splitTeams() {
+      const selected = Array.from(document.querySelectorAll('#participants-list input:checked')).map(cb => cb.value);
+      const teamCount = parseInt(document.getElementById('team-count').value);
+      if (selected.length < teamCount) return alert("人数が足りません！");
+      const shuffled = selected.sort(() => Math.random() - 0.5);
+      const teams = Array.from({ length: teamCount }, () => []);
+      shuffled.forEach((name, i) => teams[i % teamCount].push(name));
+      document.getElementById("result").innerHTML = teams.map((team, i) => `
+        <div class="team-card"><strong>チーム${i+1}</strong><ul>${team.map(n => `<li>${n}</li>`).join('')}</ul></div>
+      `).join('');
+    }
+
+    function resetAll() {
+      document.querySelectorAll('#participants-list input').forEach(cb => cb.checked = false);
+      document.getElementById('result').innerHTML = '';
+      syncCloud();
+    }
+
+    init();
   </script>
 </body>
 </html>
