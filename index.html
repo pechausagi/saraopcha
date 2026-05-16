@@ -23,7 +23,7 @@
     /* リストのデザイン調整 */
     ul.participants { list-style: none; padding: 0; margin: 0 0 1em 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.7em; }
     .participant-item { display: flex; align-items: center; justify-content: space-between; background: #fdfbff; border-radius: 12px; border: 1px solid transparent; transition: 0.2s; padding-right: 8px; }
-    .participant-item label { flex: 1; display: flex; align-items: center; font-size: 1.07em; padding: 0.5em; cursor: pointer; }
+    .participant-item label { flex: 1; display: flex; align-items: center; font-size: 1.07em; padding: 0.5em; cursor: pointer; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .participant-item:hover { background: #f3e6fd; }
     input[type="checkbox"] { accent-color: #a25cff; margin-right: 0.6em; transform: scale(1.2); }
     
@@ -34,7 +34,11 @@
     .btns { display: flex; gap: 1em; margin-bottom: 1em; }
     button { flex: 1; font-family: inherit; font-size: 1.07em; padding: 0.6em; border: none; border-radius: 1.4em; background: linear-gradient(90deg, #b385f7 0%, #a8e5ff 100%); color: #fff; font-weight: 700; cursor: pointer; transition: 0.2s; }
     button:active { transform: scale(0.95); }
-    .del-btn { background: #ff7675; color: white; border-radius: 50%; width: 22px; height: 22px; padding: 0; font-size: 0.8em; flex: none; display: none; }
+    
+    /* 管理者用ボタンのスタイル */
+    .admin-btn-wrap { display: none; gap: 2px; }
+    .order-btn { background: #e0c3fc; color: #5b41a9; border-radius: 4px; width: 22px; height: 22px; padding: 0; font-size: 0.7em; flex: none; }
+    .del-btn { background: #ff7675; color: white; border-radius: 50%; width: 22px; height: 22px; padding: 0; font-size: 0.8em; flex: none; }
     
     hr { border: none; border-top: 1.5px dashed #d9bcf7; margin: 1.5em 0; }
     .result { display: flex; flex-wrap: wrap; gap: 1em; justify-content: center; }
@@ -65,8 +69,7 @@
     </div>
 
     <h2>メンバーリスト</h2>
-    <ul class="participants" id="participants-list">
-      </ul>
+    <ul class="participants" id="participants-list"></ul>
 
     <div class="team-count-wrap">
       チーム数: <input type="number" id="team-count" min="2" value="2">
@@ -100,46 +103,61 @@
       "sb_publishable_YPe4ILiXSk080rYG4-DYxA_J7QYycfy"
     );
 
+    // グローバルでメンバーデータを保持する配列
+    let currentMembers = [];
+
     // --- 1. 初期化処理 ---
-  async function init() {
-    // A. まずメンバー一覧を表示（これを先に終わらせる）
-    await fetchMembers();
+    async function init() {
+      await fetchMembers();
 
-    updateClock();
-    setInterval(updateClock, 1000);
+      updateClock();
+      setInterval(updateClock, 1000);
 
-    // B. playerテーブルからデータを取得
-    const { data, error } = await _supabase.from('player').select('*').eq('id', 1).single();
-    
-    // データがちゃんと取れた時だけ、applyDataを実行する（ここが重要！）
-    if (data && data.selected_names) {
-      applyData(data.selected_names, data.team_count);
-    } else {
-      console.log("playerデータの取得待ち、またはデータがありません");
+      const { data, error } = await _supabase.from('player').select('*').eq('id', 1).single();
+      
+      if (data && data.selected_names) {
+        applyData(data.selected_names, data.team_count);
+      } else {
+        console.log("playerデータの取得待ち、またはデータがありません");
+      }
+
+      _supabase.channel('player_changes')
+        .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'player', filter: 'id=eq.1' }, payload => {
+          if (payload.new && payload.new.selected_names) {
+            applyData(payload.new.selected_names, payload.new.team_count);
+          }
+        }).subscribe();
+        
+      // メンバーのリアルタイム更新も監視（順番が変わった時に全員に同期するため）
+      _supabase.channel('members_changes')
+        .on('postgres_changes', { event: '*', schema: 'public', table: 'members' }, () => {
+          fetchMembers();
+        }).subscribe();
     }
-
-    // C. リアルタイム監視
-    _supabase.channel('player_changes')
-      .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'player', filter: 'id=eq.1' }, payload => {
-        if (payload.new && payload.new.selected_names) {
-          applyData(payload.new.selected_names, payload.new.team_count);
-        }
-      }).subscribe();
-  }
 
     // --- メンバー取得 & 表示 ---
     async function fetchMembers() {
-      const { data, error } = await _supabase.from('members').select('*').order('id', { ascending: true });
+      // 💡 変更点: 新設した sort カラムで昇順、同じなら id 順でソート
+      const { data, error } = await _supabase.from('members').select('*').order('sort', { ascending: true }).order('id', { ascending: true });
       if (error) return;
 
+      currentMembers = data; // データを保持
       const list = document.getElementById('participants-list');
-      list.innerHTML = data.map(m => `
-        <li class="participant-item">
+      
+      // チェック状態を一度避難させる
+      const checkedValues = Array.from(document.querySelectorAll('#participants-list input:checked')).map(cb => cb.value);
+
+      list.innerHTML = data.map((m, index) => `
+        <li class="participant-item" data-id="${m.id}">
           <label>
-            <input type="checkbox" value="${m.name}" onchange="syncCloud()">
+            <input type="checkbox" value="${m.name}" onchange="syncCloud()" ${checkedValues.includes(m.name) ? 'checked' : ''}>
             ${m.name}
           </label>
-          <button class="del-btn" onclick="deleteMember(${m.id})">×</button>
+          <div class="admin-btn-wrap">
+            <button class="order-btn" onclick="moveMember(${index}, -1)">▲</button>
+            <button class="order-btn" onclick="moveMember(${index}, 1)">▼</button>
+            <button class="del-btn" onclick="deleteMember(${m.id})">×</button>
+          </div>
         </li>
       `).join('');
       checkUser();
@@ -169,7 +187,7 @@
       if (user) {
         document.getElementById('admin-panel').style.display = 'block';
         document.getElementById('login-init-area').style.display = 'none';
-        document.querySelectorAll('.del-btn').forEach(b => b.style.display = 'block');
+        document.querySelectorAll('.admin-btn-wrap').forEach(b => b.style.display = 'flex');
       }
     }
 
@@ -178,7 +196,11 @@
       const input = document.getElementById('new-member-name');
       const name = input.value.trim();
       if (!name) return;
-      const { error } = await _supabase.from('members').insert([{ name }]);
+      
+      // 末尾に追加するため、現在の最大sort値+1を計算
+      const maxSort = currentMembers.length > 0 ? Math.max(...currentMembers.map(m => m.sort || 0)) : 0;
+
+      const { error } = await _supabase.from('members').insert([{ name, sort: maxSort + 1 }]);
       if (error) return alert("権限がありません");
       input.value = "";
       fetchMembers();
@@ -189,6 +211,33 @@
       const { error } = await _supabase.from('members').delete().eq('id', id);
       if (error) return alert("権限がありません");
       fetchMembers();
+    }
+
+    // --- 💡 追加：順番変更ロジック ---
+    async function moveMember(currentIndex, direction) {
+      const targetIndex = currentIndex + direction;
+      // 配列の範囲外なら何もしない
+      if (targetIndex < 0 || targetIndex >= currentMembers.length) return;
+
+      // 配列内の要素を入れ替え
+      const temp = currentMembers[currentIndex];
+      currentMembers[currentIndex] = currentMembers[targetIndex];
+      currentMembers[targetIndex] = temp;
+
+      // すべてのメンバーの `sort` カラムを現在の配列インデックス（1〜）で再マッピング
+      const updates = currentMembers.map((m, idx) => ({
+        id: m.id,
+        name: m.name,
+        sort: idx + 1
+      }));
+
+      // Supabaseに一括アップサート（更新）
+      const { error } = await _supabase.from('members').upsert(updates);
+      if (error) {
+        alert("順番の変更に失敗しました。権限がないか、通信エラーです。");
+      } else {
+        fetchMembers();
+      }
     }
 
     // --- 既存のチーム分けロジック ---
